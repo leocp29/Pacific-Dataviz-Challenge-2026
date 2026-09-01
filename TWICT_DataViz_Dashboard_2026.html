@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TWICT DataViz | Digital & Climate Resilience in Tonga</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{--navy:#102a43;--blue:#1677c8;--teal:#1b998b;--sky:#eaf6ff;--ink:#18324a;--muted:#60758a;--bg:#f4f7fa;--white:#fff;--line:#d9e2ec}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#102a43,#1677c8);color:white;padding:42px 6% 34px}
+header .tag{display:inline-block;background:rgba(255,255,255,.15);padding:7px 12px;border-radius:20px;font-size:13px;margin-bottom:12px}
+h1{margin:0 0 10px;font-size:34px} header p{max-width:900px;margin:0;line-height:1.6;font-size:16px}
+nav{position:sticky;top:0;z-index:5;background:white;border-bottom:1px solid var(--line);padding:12px 6%;display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--navy);text-decoration:none;font-weight:bold;font-size:14px}
+main{max-width:1250px;margin:auto;padding:28px 5% 60px}
+.section{margin:30px 0}.section h2{font-size:24px;margin-bottom:6px}.section>p{color:var(--muted);line-height:1.55}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0}
+.card,.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 4px 16px rgba(16,42,67,.05)}
+.kpi{font-size:31px;font-weight:800;color:var(--blue);margin:6px 0}.label{font-size:13px;color:var(--muted);line-height:1.4}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel h3{margin-top:0;color:var(--navy)} canvas{max-height:340px}
+.badge{display:inline-block;padding:5px 9px;border-radius:8px;background:#e8f5f3;color:#12675e;font-size:12px;font-weight:bold}
+.source{font-size:12px;color:var(--muted);margin-top:12px}
+.story{background:var(--sky);border-left:5px solid var(--blue);padding:18px;border-radius:8px;line-height:1.6}
+footer{background:var(--navy);color:white;padding:30px 6%;font-size:13px;line-height:1.6}
+@media(max-width:850px){.cards,.grid,.grid2{grid-template-columns:1fr 1fr}} @media(max-width:560px){.cards,.grid,.grid2{grid-template-columns:1fr}h1{font-size:27px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="tag">TONGA WOMEN IN ICT (TWICT) • INTERACTIVE DATAVIZ</div>
+  <h1>Digital & Climate Resilience in Tonga</h1>
+  <p>How digital skills, STEM, cyber safety and community action can strengthen resilience for women, girls, youth and communities facing a rapidly changing climate.</p>
+</header>
+
+<nav>
+<a href="#overview">Overview</a><a href="#climate">Climate Signal</a><a href="#twict">TWICT Impact</a>
+<a href="#programs">Program Areas</a><a href="#resilience">Resilience Story</a><a href="#sources">Sources</a>
+</nav>
+
+<main>
+<section id="overview" class="section">
+<h2>At a glance</h2>
+<p>This dashboard connects TWICT's work in digital inclusion and safety with the 2026 Pacific Dataviz Challenge theme of climate change.</p>
+<div class="cards">
+<div class="card"><div class="label">TWICT established</div><div class="kpi">2018</div><div class="label">Grassroots women-led ICT movement</div></div>
+<div class="card"><div class="label">Core reach</div><div class="kpi">5</div><div class="label">Main island groups targeted through programmes: Tongatapu, Vava'u, Ha'apai, 'Eua and the Niuas</div></div>
+<div class="card"><div class="label">Priority groups</div><div class="kpi">Women & Girls</div><div class="label">With youth, schools and communities included</div></div>
+<div class="card"><div class="label">Approach</div><div class="kpi">Digital + Climate</div><div class="label">Skills, safety, STEM, advocacy and resilience</div></div>
+</div>
+<div class="story"><strong>Key message:</strong> Climate resilience is not only about physical infrastructure. Communities also need access to information, digital skills, safe communication channels, STEM learning and the confidence to use technology during disruption.</div>
+</section>
+
+<section id="climate" class="section">
+<h2>1. The climate signal</h2>
+<p>The 2026 Pacific Dataviz Challenge requires at least one dataset from its official climate-change dataset list. This dashboard uses the official Blue Pacific 2050 indicator <strong>“Number of people affected by disaster”</strong> as the featured climate-and-disaster indicator and connects it to TWICT's digital resilience work.</p>
+<div class="grid">
+<div class="panel">
+<h3>Official indicator: Number of people affected by disaster</h3>
+<canvas id="disasterChart"></canvas>
+<div class="source">Official Pacific Data Hub / Blue Pacific 2050 climate-and-disasters data: Tonga is shown at approximately **80,000 people affected by disasters** in the challenge dataset covering 2020–2023. This value is used here as the Tonga country-level figure; retain the source attribution and update if the official PDH.stat extract is revised.</div>
+</div>
+<div class="panel">
+<h3>Why this matters for digital resilience</h3>
+<ul>
+<li>Disasters can interrupt access to communication and services.</li>
+<li>Women, children and vulnerable groups can face additional barriers.</li>
+<li>Digital literacy helps people identify reliable information and avoid scams.</li>
+<li>Cyber safety is essential when communities rely more heavily on digital channels.</li>
+<li>STEM and data skills help young people understand risk and design solutions.</li>
+</ul>
+<span class="badge">Official 2026 dataset category</span>
+</div>
+</div>
+</section>
+
+<section id="twict" class="section">
+<h2>2. What TWICT does</h2>
+<p>TWICT's mission is to empower women and girls in Tonga through ICT, STEAM and technical fields while advancing participation, equality and digital confidence.</p>
+<div class="grid2">
+<div class="panel"><h3>Programme ecosystem</h3><canvas id="programChart"></canvas></div>
+<div class="panel"><h3>Impact pathway</h3>
+<div class="story"><strong>Access</strong> → digital skills → <strong>confidence</strong> → safer online participation → <strong>community resilience</strong> → greater ability to respond, recover and innovate.</div>
+<p>Priority programme areas include Digital Literacy, Cyber Safety, STEM, Digital Advocacy, Digital Self-Defense, Internet Governance, Community-Centered Connectivity, Sustainable Peering Infrastructure, GEDSI and climate resilience.</p>
+</div>
+</div>
+</section>
+
+<section id="programs" class="section">
+<h2>3. TWICT programme areas</h2>
+<div class="cards">
+<div class="card"><h3>Digital Literacy</h3><p>Practical skills for communities, women, youth and schools to participate confidently in the digital economy.</p></div>
+<div class="card"><h3>Cyber Safety</h3><p>Awareness and practical protection against cyberbullying, scams, online abuse and other digital risks.</p></div>
+<div class="card"><h3>STEM</h3><p>School outreach, science activities and opportunities that encourage girls and young people into STEM pathways.</p></div>
+<div class="card"><h3>Digital Advocacy</h3><p>Using technology and evidence to support public engagement, policy dialogue and inclusive decision-making.</p></div>
+<div class="card"><h3>Climate & Digital Resilience</h3><p>Connecting climate awareness with communication, data, digital safety and community preparedness.</p></div>
+<div class="card"><h3>Connectivity</h3><p>Exploring community-centred connectivity and sustainable digital infrastructure for underserved communities.</p></div>
+<div class="card"><h3>Women in Tech</h3><p>Creating pathways for women and girls to learn, lead, mentor and participate in ICT.</p></div>
+<div class="card"><h3>GEDSI</h3><p>Embedding gender equality, disability inclusion and social inclusion across programmes and engagement.</p></div>
+</div>
+</section>
+
+<section id="resilience" class="section">
+<h2>4. From data to action</h2>
+<div class="grid">
+<div class="panel">
+<h3>Resilience framework</h3>
+<canvas id="resilienceChart"></canvas>
+</div>
+<div class="panel">
+<h3>What success looks like</h3>
+<ul>
+<li>More women and girls confidently use digital technologies.</li>
+<li>Students see STEM as a pathway for solving local problems.</li>
+<li>Communities recognise and respond to digital threats.</li>
+<li>People can access trusted information during climate and disaster events.</li>
+<li>Local evidence informs policy dialogue and preparedness.</li>
+<li>Digital inclusion supports recovery and continuity of essential activities.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="sources" class="section">
+<h2>5. Data sources & methodology</h2>
+<div class="panel">
+<p><strong>Primary organisational source:</strong> Tonga Women in ICT (TWICT), including its mission, programme areas and public programme information.</p>
+<p><strong>Official competition source:</strong> Pacific Dataviz Challenge 2026 / Pacific Data Hub. The Blue Pacific 2050 official climate-and-disasters framework includes the indicator <strong>“Number of people affected by disaster”</strong>. Pacific Data Hub also presents the related SDG 11.5.1 / SDG 13.1.1 measure of directly affected persons attributed to disasters per 100,000 population.</p>
+<p><strong>Important:</strong> TWICT programme figures should be replaced with verified monitoring data before publication. Do not present estimated or illustrative TWICT programme values as results. The disaster figure above is sourced from the Pacific Data Hub / Blue Pacific 2050 material and should be checked against the latest PDH.stat extract before final publication.</p>
+<p class="source">Dashboard concept: “Digital & Climate Resilience in Tonga — TWICT”. Prepared as an interactive dashboard prototype for the Pacific Dataviz Challenge.</p>
+</div>
+</section>
+</main>
+
+<footer>
+<strong>Tonga Women in ICT (TWICT)</strong><br>
+Empowering women and girls through ICT, STEM, cyber safety, digital literacy and inclusive digital development.<br><br>
+Dashboard prototype • 2026
+</footer>
+
+<script>
+new Chart(document.getElementById('disasterChart'),{
+ type:'bar',
+ data:{labels:['Tonga — 2020–2023'],datasets:[{label:'Number of people affected by disaster',data:[80000]}]},
+ options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+});
+new Chart(document.getElementById('programChart'),{
+ type:'doughnut',
+ data:{labels:['Digital Literacy','Cyber Safety','STEM','Digital Advocacy','Climate Resilience','Connectivity','Women in Tech','GEDSI'],
+ datasets:[{data:[1,1,1,1,1,1,1,1]}]},
+ options:{responsive:true,plugins:{legend:{position:'right'}}}
+});
+new Chart(document.getElementById('resilienceChart'),{
+ type:'line',
+ data:{labels:['Awareness','Skills','Confidence','Safe Use','Preparedness','Community Action'],
+ datasets:[{label:'TWICT resilience pathway',data:[20,35,50,65,80,90],tension:.35,fill:false}]},
+ options:{responsive:true,scales:{y:{min:0,max:100,title:{display:true,text:'Illustrative pathway score'}}}}
+});
+</script>
+</body>
+</html>
